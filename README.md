@@ -1,5 +1,5 @@
 # LaTeX-cheatsheet
-All the basic LaTeX how-tos in a single document. The information mainly comes from Overleaf's manuals.
+All the basic LaTeX how-tos in a single document. The information mainly comes from [Overleaf's Documentation](https://www.overleaf.com/learn/latex/Main_Page "Overleaf Documentation").
 
 Feel free to import the .tex file in your favourite editor and use it as a reference when writing your next LaTeX document! Made for beginners (like me), but suitable for anyone with a short memory and who can't be bothered googling every single thing.
 
