@@ -6,3 +6,9 @@ Feel free to import the .tex file in your favourite editor and use it as a refer
 Remember that for the document to compile properly, you will also need to download the test.bib file and the images folder, and place them in the same directory as the .tex file! Or you can just replicate them yourself. 
 
 Note: compiling the document on your local editor might prompt the download of a few packages, especially if you're just starting out.
+
+To be added (thanks, reddit!):
+1. \input and \include options, to import code from other .tex files;
+2. macros, to allow creation of custom commands and environments;
+3. more information on writing and formatting of equations;
+4. a version of the PDF which shows both the code and the output, for quicker reference.
