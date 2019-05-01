@@ -1,4 +1,6 @@
-\documentclass[12pt, letterpaper]{article} % defines the type (class) of the document, takes [extra parameters, separated by commas] like font (def = 10) and paper size (a3paper, a4paper) (e.g. [12pt, letterpaper])
+\documentclass[12pt, letterpaper]{article} % defines the type (class) of the 
+% document, takes [extra parameters, separated by commas] like font (def = 10)
+% and paper size (a3paper, a4paper) (e.g. [12pt, letterpaper])
 
 \usepackage[utf8]{inputenc} % sets encoding for the document
 
@@ -6,7 +8,7 @@
 \graphicspath{{images/}{more images/}} % default directories for images
 
 \usepackage{geometry} % allows to change length & layout of paper size, margins, footnote, header, orientation, etc.
-\geometry{a4paper, portrait, margin = 1in} % paper size, orientation, margin size
+\geometry{a4paper, portrait, margin = 1in} % paper + orientation + margin size
 
 \usepackage{multicol} % allows to have multiple columns
 \setlength{\columnsep}{1cm} % sets columns spacing
@@ -18,7 +20,7 @@ sorting=ynt
 ]{biblatex} % allows easier bibliography management
 \addbibresource{test.bib} % imports bibliography file
 
-\usepackage[dvipsnames]{xcolor} % allows use of colour in document + [extra names option]
+\usepackage[dvipsnames]{xcolor} % allows use of colour in document
 \pagecolor{white} % sets page background colour, reversed by \nopagecolor 
 \color{black} % sets default text colour
 
@@ -34,17 +36,18 @@ sorting=ynt
 \setlength{\parindent}{20pt} % sets the size of the indent
 \setlength{\parskip}{1ex} % sets the paragraph spacing
 \renewcommand{\baselinestretch}{1.15} % sets interline spacing
-\pagenumbering{arabic} % sets the style of page numbering, r(R)oman and a(A)lph are alts
+\pagenumbering{arabic} % sets the style of page numbering
 
 \title{\LaTeX notes} % title of the document
 
-\author{frostedmist\thanks{so done with the world}, too much tea} % author of the document + affiliations
+% author of the document + affiliations
+\author{frostedmist\thanks{so done with the world}, too much tea} 
 
 \date{April 2019} % date, can take the command \today
 
 \begin{document} % start of the document body
 
-\maketitle % inserts the preamble info (title + author + date) in the document body
+\maketitle % inserts title + author + date in the document body
 
 \section{Font style and size}
 
@@ -64,7 +67,8 @@ This is \emph{emphasized depending on the context!} % can be altered by packages
 \textsf{This is Sans Serif!}
 \texttt{This is Typewriter (monospace)!}
 
-\subsection*{Here are some font sizes (relative to starting size):} % list not exhaustive
+\subsection*{Here are some font sizes (relative to starting size):} 
+% list not exhaustive
 
 \tiny{This is tiny!}
 \small{This is small!}
@@ -75,7 +79,8 @@ This is \emph{emphasized depending on the context!} % can be altered by packages
 \normalsize{Back to normal now.}
 
 \clearpage % inserts page break, use before the start of a new section
-% \newpage is an alt that breaks the page exactly at that point + starts a new column (if using more than one) - \clearpage is usually preferred
+% \newpage is an alt that breaks the page exactly at that point + starts a new
+% column (if using more than one) - \clearpage is usually preferred
 
 \section{Formatting}
 
@@ -94,20 +99,34 @@ This is also a line break. % list not exhaustive
 	The par command also creates a new paragraph!
 \end{center}
 
-You can insert horizontal space in text! Like this \hspace{1cm} here (all units allowed.) You can also have a break that \hfill automatically fills all the space available. \\ You can make this pretty by adding a line \hrulefill or dots \dotfill like this. \\Useful for signatures and indices!
+You can insert horizontal space in text! 
+Like this \hspace{1cm} here (all units allowed.) 
+You can also have a break that \hfill 
+automatically fills all the space available. \\ 
+You can make this pretty by adding a line \hrulefill 
+or dots \dotfill like this. \\
+Useful for signatures and indices!
 
-You can also insert vertical space! Again, you can either \vspace{5mm}\\specify a distance or let it automatically \vfill fill the space available (will take into account other elements in page). Smallskip, medskip and bigskip are also somewhat dynamic ways to insert vertical space.
+You can also insert vertical space! 
+Again, you can either \vspace{5mm}\\specify a distance 
+or let it automatically \vfill fill the space available 
+(will take into account other elements in page). 
+Smallskip, medskip and bigskip are also 
+somewhat dynamic ways to insert vertical space.
 
 \begin{multicols}{3} % call multicols* for unbalanced columns
 	[\subsection*{Columns}
-	This is header text on top of the columns. Put whatever you want here but figures/tables.]
-	This text should end up in column one. \\ This text should end up in column 2. \\ This text should end up in column 3.
+	This is header text on top of the columns. 
+	Put whatever you want here but figures/tables.]
+	This text should end up in column one. \\ 
+	This text should end up in column 2. \\ 
+	This text should end up in column 3.
 \end{multicols}
 And would you look at that - it did. Yay.
 
 
 \clearpage
-\subsection*{Sections hierarchy (commands):} % package titlesec allows customisation of sections
+\subsection*{Sections hierarchy (commands):} % see titlesec for customisation
 
 \begin{enumerate}
 	\setcounter{enumi}{-2} % start at a different number
@@ -119,7 +138,8 @@ And would you look at that - it did. Yay.
 	\item paragraph
 	\item subparagraph
 \end{enumerate}
-Any of these can be made unnumbered by adding an * before the opening curly brace.
+Any of these can be made unnumbered by adding an * 
+before the opening curly brace.
 
 \begin{table}[!h]
 	\centering
@@ -148,25 +168,31 @@ All subsequent ones are too.
 
 \noindent The noindent command changes this.\par
 
-This is a paragraph that spans multiple lines that I am using to test the line spacing options. Really there is not that much to see here. Carry on.
+This is a paragraph that spans multiple lines that I am using 
+to test the line spacing options. 
+Really there is not that much to see here. Carry on.
 
 \clearpage
-\section{Figures and referencing} \label{sec:fig} % labels the section for referencing
+\section{Figures and referencing} \label{sec:fig} % labels for referencing
 
 \begin{figure}[h] % inserts figure + caption, label and reference [h]ere
     \centering % page alignment
-    \includegraphics[width=0.9\textwidth]{scream.jpg} % inserts image, with a width of 90% of the text width
+    \includegraphics[width=0.9\textwidth]{scream.jpg} % inserts image
+    % with width of 90% that of text
     \caption{me} % inserts caption, used in list of figures
     \label{fig:scream} % numbers and labels image for reference
 \end{figure}
 
-This will refer to the figure label, Figure \ref{fig:scream}, while this will refer to the page it is in, Page \pageref{fig:scream}.
+This will refer to the figure label, Figure \ref{fig:scream}, 
+while this will refer to the page it is in, Page \pageref{fig:scream}.
 
-You can also refer to a specific section, like Section \ref{sec:fig} in which this is.
+You can also refer to a specific section, 
+like Section \ref{sec:fig} in which this is.
 
 \clearpage
 \section{Lists and maths}
-Environments are sections of the document that present themselves in a different way to the rest. These are some of them.
+Environments are sections of the document that present themselves 
+in a different way to the rest. These are some of them.
 
 \begin{itemize}
   \item This is an unordered list
@@ -200,33 +226,56 @@ E=mc^2
 
 % do NOT use $$ E=mc^2 $$ 
 
-Like everything else, display mode mathematical equations can be referenced, e.g. equation \ref{eq:1}. Unnumbered equations can also be referenced by number but cannot be easily recognised.
+Like everything else, display mode mathematical equations 
+can be referenced, e.g. equation \ref{eq:1}. 
+Unnumbered equations can also be referenced by number 
+but cannot be easily recognised.
 
 \clearpage
 \section{Tables} % use tablesgenerator.com to convert spreadsheets to code (e.g. table 1)
 
 \begin{table}[h] % inserts table [h]ere
 	\centering % centers the table in page
-	\begin{tabular}{|| l | c | r ||} % defines layout, number/align of columns & vertical lines
+	\begin{tabular}{|| l | c | r ||} % defines layout, number/align of columns
+		% & vertical lines
 		\hline % line at the top of first row
-		Col1 &	Col2 &	Col2	\\ \hline\hline % & breaks a cell, \\ breaks a row
+		Col1 &	Col2 &	Col2	\\ \hline\hline % & breaks cell, \\ breaks row
 		A	 &	23	 &	10000	\\ \hline
 		B	 &	2	 &	66		\\ \hline
-		C	 &	5	 &	58 		\\ [1ex] \hline % [ex] adds vertical space to row
+		C	 &	5	 &	58 		\\ [1ex] \hline % [ex] adds vertical space
 	\end{tabular}
 	\caption{Fancy table} % label and caption go after the table
 	\label{table:data} % numbers and labels the table for reference
 \end{table}
 
-The table can then be referred to as Table \ref{table:data} on Page \pageref{table:data}.
+The table can then be referred to as Table \ref{table:data} 
+on Page \pageref{table:data}.
 
 \section{Colours}
 
-The \texttt{xcolour} package allows to colour things. The basic colours it supports are \textcolor{white}{white}, \textcolor{black}{(white), black}, \textcolor{red}{red}, \textcolor{green}{green}, \textcolor{blue}{blue}, \textcolor{cyan}{cyan}, \textcolor{magenta}{magenta}, \textcolor{yellow}{and yellow}.
+The \texttt{xcolour} package allows to colour things. 
+The basic colours it supports are 
+\textcolor{white}{white}, 
+\textcolor{black}{(white), black}, 
+\textcolor{red}{red}, 
+\textcolor{green}{green}, 
+\textcolor{blue}{blue}, 
+\textcolor{cyan}{cyan}, 
+\textcolor{magenta}{magenta}, 
+\textcolor{yellow}{and yellow}.
 
-Adding \texttt{dvipsnames} to the package in the preamble allows you to name a few more, like \textcolor{TealBlue}{Teal Blue} or \textcolor{WildStrawberry}{Wild Strawberry} (careful with the caps!). You can also change \colorbox{BurntOrange}{the background colour} for the text.
+Adding \texttt{dvipsnames} to the package in the preamble 
+allows you to name a few more, like 
+\textcolor{TealBlue}{Teal Blue} or 
+\textcolor{WildStrawberry}{Wild Strawberry} 
+(careful with the caps!). 
+You can also change \colorbox{BurntOrange}{the background colour} 
+for the text.
 
-The color command (instead of textcolor) can be used \color{cyan}to switch the colour of an entire block of text until it ends - or until the end of the environment. Remember to \color{black} switch back in that case!
+The color command (instead of textcolor) can be used 
+\color{cyan}to switch the colour of an entire block of text 
+until it ends - or until the end of the environment. 
+Remember to \color{black} switch back in that case!
 
 Here is a list of custom colours (defined in the preamble) instead.
 \begin{itemize}
@@ -234,7 +283,7 @@ Here is a list of custom colours (defined in the preamble) instead.
 	\item \textcolor{mypink2}{Pink with RGB}
 	\item \textcolor{mypink3}{Pink with cmyk}
 	\item \textcolor{mygray}{Gray with gray}
-	\item \textcolor{LightRubineRed}{Rubine red at 70\% intensity} % print "%" by adding a \
+	\item \textcolor{LightRubineRed}{Rubine red at 70\% intensity}
 	\item \textcolor{OrangeGreen}{A mix of 10\% green and 90\% orange}
 	\item \textcolor{HTMLColor}{Defined with HTML code}
 \end{itemize}
@@ -248,7 +297,9 @@ These can be used for any element that takes a colour as parameter, like a line.
 
 \tableofcontents
 
-% tocs don't include unnumbered sections, if one needs to be added, then the command \addcontentsline{toc}{section}{Unnumbered Section} can be used above that unnumbered section
+% tocs don't include unnumbered sections, if one needs to be added, then the
+% command \addcontentsline{toc}{section}{Unnumbered Section} can be used above
+% that unnumbered section
 
 \addcontentsline{toc}{section}{Include me please!} % example
 \section*{Include me please!}
@@ -263,7 +314,13 @@ This unnumbered section is not in the toc.
 
 \section{Referencing with BibLaTeX}
 
-Cite things like this: \cite{dirac}, \cite{einstein}, \cite{knuth-fa}, \cite{knuthwebsite}! You can change the referencing style in the preamble. Make sure your editor of choice is using Biber (or your backend of choice) as its default bibliography tool!
+Cite things like this: 
+\cite{dirac}, 
+\cite{einstein}, 
+\cite{knuth-fa}, 
+\cite{knuthwebsite}! You can change the referencing style in the preamble. 
+Make sure your editor of choice is using Biber (or your backend of choice) 
+as its default bibliography tool!
 
 \printbibliography
 
