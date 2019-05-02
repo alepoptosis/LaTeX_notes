@@ -1,0 +1,21 @@
+\subsection{Include}
+This subsection also comes from a different file, added to the main document 
+with the include command. This is the more complex command of the two: 
+
+\begin{itemize}
+	\item It forces a page break (clearpage) before inserting the new content;
+	\item Ideal for for bigger contents, like entire book chapters;
+	\item Cannot be nested;
+	\item It creates a dedicated .aux file, meaning the file could potentially 
+	compiled on its own (this one cannot though!) - the \texttt{subfile} and 
+	\texttt{standalone} packages offer a better alternative if you want to do 
+	this; % to be fixed
+	\item Can only be used in the document body, not in preamble, packages or 
+	restricted/math mode;
+	\item Also here, numbering remains consistent.
+\end{itemize}
+
+The command \verb+\includeonly{filename1,filename2,...}+ can be used in the 
+preamble of the main document to only load selected sections. This allows you 
+to only work on one section at a time while also keeping consistent numbering 
+and referencing.

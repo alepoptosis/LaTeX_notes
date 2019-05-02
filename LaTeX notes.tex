@@ -1,5 +1,5 @@
 \documentclass[12pt, letterpaper]{article} % defines the type (class) of the 
-% document, takes [extra parameters, separated by commas] like font (def = 10)
+% document, takes [extra parameters, separated by commas] like font (def = 10) 
 % and paper size (a3paper, a4paper) (e.g. [12pt, letterpaper])
 
 \usepackage[utf8]{inputenc} % sets encoding for the document
@@ -7,7 +7,7 @@
 \usepackage{graphicx} % allows use of pictures in document
 \graphicspath{{images/}{more images/}} % default directories for images
 
-\usepackage{geometry} % allows to change length & layout of paper size, margins, footnote, header, orientation, etc.
+\usepackage{geometry} % allows to change length & layout various elements
 \geometry{a4paper, portrait, margin = 1in} % paper + orientation + margin size
 
 \usepackage{multicol} % allows to have multiple columns
@@ -19,6 +19,11 @@ style=apa, % bibliography and citation style
 sorting=ynt
 ]{biblatex} % allows easier bibliography management
 \addbibresource{test.bib} % imports bibliography file
+
+\usepackage[
+capitalise, % remove for lowercase labels
+noabbrev % remove for abbreviated labels
+]{cleveref} % produces better labels when referencing
 
 \usepackage[dvipsnames]{xcolor} % allows use of colour in document
 \pagecolor{white} % sets page background colour, reversed by \nopagecolor 
@@ -53,30 +58,32 @@ sorting=ynt
 
 \subsection*{Here is a series of font styles:}
 
-This is \textbf{in bold!} 
-This is \textit{in italics!}
-This is \underline{underlined!}
-This is \textbf{\textit{\underline{a combination!}}}
-This is \textsl{slanted!}
-This is \textsc{in small caps!}
-This is \emph{emphasized depending on the context!} % can be altered by packages
+Use \verb+\textbf{}+ \textbf{for bold!} \\
+Use \verb+\textit{}+ \textit{for italics!} \\
+Use \verb+\underline{}+ \underline{to underline!} \\
+Also \textbf{\textit{\underline{combine them!}}} \\
+Use \verb+\textsl{}+ \textsl{for slanted!} \\
+Use \verb+\textsc{}+ \textsc{for small caps!} \\
+Use \verb+\emph{}+ \emph{emphasize!} % can be altered by packages
 
 \subsection*{Here are the default font families:}
 
-\textrm{This is Serif (roman)!}
-\textsf{This is Sans Serif!}
-\texttt{This is Typewriter (monospace)!}
+\verb+\textrm{}+ \textrm{makes text Serif (roman)!} \\
+\verb+\textsf{}+ \textsf{makes it Sans Serif!} \\
+\verb+\texttt{}+ \texttt{makes it Typewriter (monospace)!} 
 
 \subsection*{Here are some font sizes (relative to starting size):} 
 % list not exhaustive
+Here, size names are the commands (case sensitive)! e.g. 
+\verb+\tiny{}, \large{}, \Large{} and \huge{}+\\
 
 \tiny{This is tiny!}
 \small{This is small!}
 \large{This is large!}
 \Large{I said Large!}
 \LARGE{NO, LARGE!!!}
-\huge{There we go.}
-\normalsize{Back to normal now.}
+\huge{Now huge!}
+\normalsize{Aaand back to normal size.}
 
 \clearpage % inserts page break, use before the start of a new section
 % \newpage is an alt that breaks the page exactly at that point + starts a new
@@ -93,25 +100,27 @@ This is a line break.\newline
 This is also a line break. % list not exhaustive
 
 \begin{center}
-	This centres the text! You can also align it left (flushleft) or right (flushright), or do nothing to leave it justified.
+	This centres the text! You can also align it left (\verb+\flushleft+) 
+	or right (\verb+\flushright+), or do nothing to leave it justified.
 	
 	A blank line creates a new paragraph!\par
-	The par command also creates a new paragraph!
+	The \verb+\par+ command also creates a new paragraph!
 \end{center}
 
-You can insert horizontal space in text! 
-Like this \hspace{1cm} here (all units allowed.) 
-You can also have a break that \hfill 
-automatically fills all the space available. \\ 
-You can make this pretty by adding a line \hrulefill 
-or dots \dotfill like this. \\
-Useful for signatures and indices!
+You can insert horizontal space in text! \\
+You can set a specific width with \verb+\hspace{width}+ \hspace{1cm} (all units 
+allowed.)
+or you can have a break with \verb+\hfill+ that automatically \hfill 
+fills all the space available. \\ 
+You can make this pretty by adding a line with \verb+\hrulefill+ \hrulefill \\
+or dots with \verb+\dotfill+ \dotfill. Useful for signatures and indices!
 
 You can also insert vertical space! 
-Again, you can either \vspace{5mm}\\specify a distance 
-or let it automatically \vfill fill the space available 
-(will take into account other elements in page). 
-Smallskip, medskip and bigskip are also 
+Again, you can either use \verb+\vspace{height}+ to \vspace{5mm} \\
+specify a distance or use \verb+\vfill+ to automatically \vfill fill the space 
+available 
+(will take into account other elements in page). \\  
+\verb+\smallskip, \medskip and \bigskip+ are also 
 somewhat dynamic ways to insert vertical space.
 
 \begin{multicols}{3} % call multicols* for unbalanced columns
@@ -138,10 +147,10 @@ And would you look at that - it did. Yay.
 	\item paragraph
 	\item subparagraph
 \end{enumerate}
-Any of these can be made unnumbered by adding an * 
-before the opening curly brace.
+Any of these can be made unnumbered by adding an * before the opening curly 
+brace.
 
-\begin{table}[!h]
+\begin{table}[!h] % made with tablesgenerator.com (see tables section)
 	\centering
 	\begin{tabular}{|l|l|}
 		\hline
@@ -166,11 +175,10 @@ The second is, and the indent size is defined in the preamble.
 
 All subsequent ones are too.
 
-\noindent The noindent command changes this.\par
+\noindent The \verb+\noindent+ command changes this.\par
 
-This is a paragraph that spans multiple lines that I am using 
-to test the line spacing options. 
-Really there is not that much to see here. Carry on.
+This is a paragraph that spans multiple lines that I am using to test the 
+line spacing options. Really there is not that much to see here. Carry on.
 
 \clearpage
 \section{Figures and referencing} \label{sec:fig} % labels for referencing
@@ -183,18 +191,26 @@ Really there is not that much to see here. Carry on.
     \label{fig:scream} % numbers and labels image for reference
 \end{figure}
 
-This will refer to the figure label, Figure \ref{fig:scream}, 
-while this will refer to the page it is in, Page \pageref{fig:scream}.
+\verb+\cref{}+, from the \texttt{cleveref} package, is used to reference the 
+figure label, \cref{fig:scream}, while \verb+\cpageref{}+ will refer to the 
+page it is in, \cpageref{fig:scream}. You can also use \verb+\cref{}+ to refer 
+to a section, like \cref{sec:fig}. 
 
-You can also refer to a specific section, 
-like Section \ref{sec:fig} in which this is.
+Change settings for the package in the preamble. You can use the built-in 
+reference system with \verb+\ref{} and \pageref{}+, but it will only produce 
+the number, and not the label.
 
 \clearpage
 \section{Lists and maths}
 Environments are sections of the document that present themselves 
-in a different way to the rest. These are some of them.
+in a different way to the rest. They start with \verb+\begin{}+ and end in... 
+well, \verb+\end{}+. You already encountered plenty in the previous sections. 
+Here are some of them in more details.
+
+\subsection*{Lists}
 
 \begin{itemize}
+  \item \verb+\itemize+ environment
   \item This is an unordered list
   \item It uses bullet points
   \item Text can be of any length
@@ -202,10 +218,13 @@ in a different way to the rest. These are some of them.
 
 \begin{enumerate}
 % \setcounter{enumi}{3} <- start at a different number
+  \item \verb+\enumerate+ environment
   \item This is an ordered list
   \item It uses numbers
   \item The list number increases with each item
 \end{enumerate}
+
+\subsection*{Math}
 
 These are ways to write mathematical expressions, inline mode:
 $E=mc^2$, 
@@ -226,13 +245,13 @@ E=mc^2
 
 % do NOT use $$ E=mc^2 $$ 
 
-Like everything else, display mode mathematical equations 
-can be referenced, e.g. equation \ref{eq:1}. 
-Unnumbered equations can also be referenced by number 
-but cannot be easily recognised.
+Like everything else, display mode mathematical equations can be referenced 
+with \verb+\cref+, e.g. \cref{eq:1}. Unnumbered equations can also be 
+referenced by number but cannot be easily recognised.
 
 \clearpage
-\section{Tables} % use tablesgenerator.com to convert spreadsheets to code (e.g. table 1)
+
+\subsection*{Tables} % use tablesgenerator.com to convert spreadsheets to code
 
 \begin{table}[h] % inserts table [h]ere
 	\centering % centers the table in page
@@ -248,8 +267,7 @@ but cannot be easily recognised.
 	\label{table:data} % numbers and labels the table for reference
 \end{table}
 
-The table can then be referred to as Table \ref{table:data} 
-on Page \pageref{table:data}.
+The table can then be referred to as \cref{table:data} on \cpageref{table:data}.
 
 \section{Colours}
 
@@ -323,5 +341,16 @@ Make sure your editor of choice is using Biber (or your backend of choice)
 as its default bibliography tool!
 
 \printbibliography
+
+\clearpage
+
+\section{Input and include}
+
+These commands allow to import content from other .tex files into the main 
+documents, which makes things a lot easier when working on a bigger project.
+
+\input{input} % file extension is optional
+
+\include{include} % file extension should NOT be included
 
 \end{document} % end of the document body
