@@ -9,10 +9,10 @@ Note: compiling the document on your local editor might prompt the download of a
 
 To be added in no particular order (thanks, reddit!):
 - ~~\input and \include commands, to import code from other .tex files;~~ Section on \input and \include added;
-- macros, to allow creation of custom commands and environments;
+- ~~macros, to allow creation of custom commands and environments;~~ Chapter on macros (commands and environments) added;
 - more information on writing and formatting of equations;
 - ~~a version of the PDF which shows both the code and the output, for quicker reference;~~ Adding explicit code where possible;
 - ~~[cleveref](https://texblog.org/2013/05/06/cleveref-a-clever-way-to-reference-in-latex/ "cleveref") for figure/table referencing instead of the built-in system;~~ Cleveref now in use;
 - reference to the [booktabs](http://ctan.mirrors.hoobly.com/macros/latex/contrib/booktabs/booktabs.pdf "booktabs documentation") package for better tables.
-- code listing and verbatim environments;
+- ~~code listing and verbatim environments;~~ Verbatim package added and utilised in the macro section;
 - how to have the preamble in a separate file.
