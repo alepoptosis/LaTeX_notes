@@ -29,6 +29,25 @@ noabbrev % remove for abbreviated labels
 \pagecolor{white} % sets page background colour, reversed by \nopagecolor 
 \color{black} % sets default text colour
 
+\usepackage{verbatim} % allows a multiple-lines verbatim environment
+% (like using \verb but more flexible)
+
+% new command for macro section
+\newcommand{\omg}[1][John]{{#1} was \textbf{shocked} beyond measure!}
+
+% new environment for macro section
+\newenvironment{boxed}[1]
+	{\begin{center}
+		#1\\[1ex]
+		\begin{tabular}{|p{0.9\textwidth}|}
+			\hline\\
+		}
+		{ 
+			\\\\\hline
+		\end{tabular} 
+	\end{center}
+} 
+
 \definecolor{mypink1}{rgb}{0.858, 0.188, 0.478} % four ways to define custom colours
 \definecolor{mypink2}{RGB}{219, 48, 122}
 \definecolor{mypink3}{cmyk}{0, 0.7808, 0.4429, 0.1412}
@@ -59,8 +78,8 @@ noabbrev % remove for abbreviated labels
 
 \subsection*{Here is a series of font styles:}
 
-Use \verb+\textbf{}+ \textbf{for bold!} \\
-Use \verb+\textit{}+ \textit{for italics!} \\
+Use \verb+\textbf{}+ \textbf{for bold!} \\ % \verb ensures a command is printed
+Use \verb+\textit{}+ \textit{for italics!} \\ % instead of executed
 Use \verb+\underline{}+ \underline{to underline!} \\
 Also \textbf{\textit{\underline{combine them!}}} \\
 Use \verb+\textsl{}+ \textsl{for slanted!} \\
@@ -101,7 +120,8 @@ This is a first paragraph.\\
 \verb+\newline+ also creates a line break. % list not exhaustive
 
 \begin{center}
-	\verb+\begin{center}+ centres the text! You can also align it left (\verb+\flushleft+) or right (\verb+\flushright+), or do nothing 
+	\verb+\begin{center}+ centres the text! You can also align it left 
+	(\verb+\flushleft+) or right (\verb+\flushright+), or do nothing 
 	to leave it justified.
 	
 	A blank line creates a new paragraph!\par
@@ -331,7 +351,10 @@ These can be used for any element that takes a colour as parameter, like a line.
 \addcontentsline{toc}{section}{Include me please!} % example
 \section*{Include me please!}
 
-Table of contents don't include unnumbered sections. if one needs to be added, then the command \verb+\addcontentsline{toc}{section}{Unnumbered Section}+ can be used above that unnumbered section. For example, this unnumbered section is in the ToC.
+Table of contents don't include unnumbered sections. if one needs to be added, 
+then the command \verb+\addcontentsline{toc}{section}{Unnumbered Section}+ 
+can be used above that unnumbered section. For example, this unnumbered section 
+is in the ToC.
 
 \section*{I want to be left out!}
 
@@ -361,5 +384,107 @@ documents, which makes things a lot easier when working on a bigger project.
 \input{input} % file extension is optional
 
 \include{include} % file extension should NOT be included
+
+\section{Macros}
+\subsection{Custom commands}
+
+Macros allow you to create customised commands for a variety of uses. A new 
+command can be created with \verb+\newcommand{\name}[num][default]{definition}+,
+where:
+
+\begin{itemize}
+	\item \textbf{name} is the name of the new command (digits not allowed);
+	\item \textbf{num} is the number of argument the command takes (optional);
+	\item \textbf{default} is the default parameter to the first argument 
+	(optional). If absent, all arguments become required;
+	\item \textbf{definition} is the custom command.
+\end{itemize}
+
+You cannot overwrite an existing command with a new one, unless you use
+\verb+\renewcommand+ instead of \verb+\newcommand+, which use the same syntax.
+If \verb+\providecommand+ is used instead, \LaTeX will silently ignore the new
+command if one with the same name already exists.
+
+If you find yourself doing something often (e.g. write a complex name, a symbol,
+an equation etc.) making it a custom command is 
+a good idea for two reasons:
+
+\begin{enumerate}
+	\item It will save you time when writing the document;
+	\item If you change your mind about how you want those words formatted,
+	you can just change the original command instead of updating them manually
+	one by one. This ensures consistency and saves you more time!
+\end{enumerate}
+
+\textbf{Example}: say I write "but {Character name} had \textbf{no idea} what 
+was lurking around the corner." a lot. Like, a lot. I can define the following 
+command in the preamble: 
+\verb+\newcommand{\omg}[1][John]{{#1} was \textbf{shocked} beyond measure!}+. \\
+Calling it without any parameters would yield:\\
+\omg
+\\
+While calling it with a different parameter would yield:\\
+\omg[Agatha]
+
+\clearpage
+
+\subsection{Custom environments}
+
+Macros can also be used to create customised environments, like special types
+of lists or formatted tables. A new environment can be created with\\
+\verb+\newenvironment{name}[num][default]{before}{after}+, where:
+
+\begin{itemize}
+	\item \textbf{name} is the name of the new environment;
+	\item \textbf{num} is the number of argument the environment takes 
+	(optional);
+	\item \textbf{default} is the default parameter to the first argument 
+	(optional). If absent, all arguments become required;
+	\item \textbf{before} contains the material that gets processed before 
+	the text in the environment (when \verb+\begin{name)+ is encountered);
+	\item \textbf{after} contains the material that gets processed after 
+	the text in the environment (when \verb+\end{name)+ is encountered);
+\end{itemize}
+
+You cannot overwrite an existing environment with a new one, unless you use
+\verb+\renewenvironment+ instead, which uses the same syntax.
+
+Like with commands, using a custom environment instead of repeating the same
+formatting commands multiple times saves you time and ensures consistency.
+
+\textbf{Example}: I want to put my text in a box with a title. To do that, I
+would have to put this entire block of commands:
+
+\begin{verbatim}
+\begin{center}
+I am a title!\\[1ex]
+\begin{tabular}{|p{0.9\textwidth}|}
+\hline\\
+I am text in the box!
+\\\\\hline
+\end{tabular} 
+\end{center}
+}
+\end{verbatim}
+
+To obtain this:
+
+\begin{center}
+	I am a title!\\[1ex]
+	\begin{tabular}{|p{0.9\textwidth}|}
+		\hline\\
+		I am text in the box!
+		\\\\\hline
+	\end{tabular} 
+\end{center}
+
+
+Instead, if I create a command for it which takes the title of the box as an
+argument, I only need to use \verb+\begin{boxed}[Title]+ to have the same 
+result.
+
+\begin{boxed}{I am also a title!}
+	And I am also text in the box!
+\end{boxed}
 
 \end{document} % end of the document body
